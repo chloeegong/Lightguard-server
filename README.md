@@ -1,4 +1,4 @@
-# Lightguard Server
+# Lightguard Client
 
 ## About
 Lightguard is a mobile application that promotes well-being on college campuses through safety features such as route generation using well-lit paths, access to emergency resources, and contact notifications.
@@ -76,7 +76,8 @@ View project locally
 ## Testing Postman
 In Postman app\
 Get a get tab, and a post tab\
-localhost:3001/api/users/get-all-users\
+request url for get: localhost:3001/api/users/get-all-users\
+request url for post: localhost:3001/auth/users/create-user\
 (make sure both are on json)(body)(raw)\
  ```
 {
