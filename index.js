@@ -17,6 +17,7 @@ mongoose.connect(process.env.MONGO_SRV, {
 })
 
 require('./routes/user.routes')(app)
+require('./routes/auth.routes')(app)
 
 app.listen(3001, () => {
   console.log(`Server running on port 3001`)
