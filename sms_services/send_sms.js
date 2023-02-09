@@ -16,7 +16,7 @@ const client = require('twilio')(accountSid, authToken);
 client.messages
   .create({
      //message sent
-     body: '2',
+     body: 'testing',
      //twilio given phone number
      from: '+18335671491',
      //specify what phone number message is sent to
