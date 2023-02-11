@@ -1,7 +1,6 @@
 const bcrypt = require('bcrypt'); 
 const jwt = require('jsonwebtoken'); 
 const config = require('../config/auth.config'); 
-// const Token = require('../models/token.model'); 
 const User = require('../models/user.model'); 
 
 const studentRegister = async (req, res) => {
@@ -21,10 +20,6 @@ const studentRegister = async (req, res) => {
   }
 }
 
-function generateToken(id) {
-  return jwt.sign({ id: id }, process.env.JWT_SECRET);
-}
-
 const login = async (req, res) => {
   console.log(`req.body in auth.controller/login: ${JSON.stringify(req.body)}`); 
 
@@ -36,8 +31,11 @@ const login = async (req, res) => {
     } 
     // compares the password between User passed from req.user and 
     // password provided from req body 
-    let passwordIsValid = bcrypt.compareSync(req.body.password, user.password); 
-    
+
+    // req.body.password = await hashPassword(req.body.password)
+    let passwordIsValid = await bcrypt.compareSync(req.body.password, user.password); 
+    // let passwordIsValid = await bcrypt.compare(req.body.password, user.password); 
+
     if (!passwordIsValid) {
       return res.status(401).send({
         accessToken: null, 
@@ -45,7 +43,7 @@ const login = async (req, res) => {
       }); 
     }
     let _token = jwt.sign({ id: user._id }, config.secret, {
-      expiresIn: config.jwtExpiration, 
+      expiresIn: '1h', 
     }); 
 
     // sent to the frontend 
@@ -61,5 +59,8 @@ const login = async (req, res) => {
   }
 }
 
+function generateToken(id) {
+  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "1d"});
+}
 
 module.exports = { studentRegister, login }
