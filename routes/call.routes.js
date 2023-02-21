@@ -1,5 +1,5 @@
 const controller = require('../controllers/call.controller')
 
 module.exports = function(app) {
-  app.get('/call-emerg', controller.getAllUsers)
+  app.get('/call-emerg', controller.callEmergServices)
 }
