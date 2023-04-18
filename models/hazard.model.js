@@ -4,7 +4,7 @@ const hazardSchema = new mongoose.Schema({
   criminalActivity: { type: Boolean }, 
   construction: { type: Boolean },
   blockedPath: { type: Boolean }, 
-  other: { type: String }  
+  other: { type: Boolean }  
 })
 
 const Hazard = mongoose.model('Hazard', hazardSchema)
