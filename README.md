@@ -1,16 +1,15 @@
-# Lightguard Server
+# Lightguard Client
 
 ## About
 Lightguard is a mobile application that promotes well-being on college campuses through safety features such as route generation using well-lit paths, access to emergency resources, and contact notifications.
 
 ## Project Status 
-V1: 
+V1: Testing & Production
 
-## Prerequisite 
-#### 1. Install the Expo Go app on your iOS or Android phone and connect to the same wireless network as your computer.
+## Prerequisites 
+1. Install the Expo Go app on your iOS or Android phone and connect to the same wireless network as your computer OR _Installation on MacOS_: Install XCode 
 
-#### 2. Install NodeJS v16.17.1
-
+2. Install NodeJS v16.17.1 
 ### Installation on MacOS (via Homebrew)
 ```console 
 $ brew install node
@@ -19,14 +18,13 @@ $ brew install node
 ### Installation on Windows
 Install NodeJS (via [NodeJS](https://nodejs.org/en/download/))
 
-#### 3. MongoDB Connection
+3. MongoDB Connection
 Create MongoDB account
 Build a Database
- - Create a Shared (free)
- - Create Cluster
- - Create a username & autogenerate password (Copy this password, you will need it)
+ - Create a Shared (free) Cluster
+ - Create a username & autogenerate password (Save this password for later, you will need it)
  - Click create user
- - Add My Current IP Address
+ - Add My Current IP Address 
  - Finish and close
 In your cluster click Connect
  - Connect using VS Code
@@ -36,34 +34,50 @@ In VS Code
  - In Command Palette go to MongoDB: Connect
  - Paste in your mongodb+srv://<user>:<password>@cluster0.lnycqwu.mongodb.net/test
  - Should now be connected
- (Server Repo .env file needs MONGO_SRV='mongodb+srv://user1:a2ShMBt8gpMTZzjL@cluster0.qsu9bgh.mongodb.net/test' (your part)
+ (Server Repo .env file needs MONGO_SRV='mongodb+srv://user1:a2ShMBt8gpMTZzjL@cluster0.qsu9bgh.mongodb.net/test' (your part))
+ (Server Repo .env file needs TWILIO_ACCOUNT_SID='<TWILIO SID>')
+ (Server Repo .env file needs TWILIO_AUTH_TOKEN='<TWILIO AUTH TOKEN>')
 
 ## Set up Development Environment 
-Clone repo and download dependencies
+Clone server and client repos and download dependencies
 ```console 
-$ git clone https://github.com/chloeegong/Lightguard.git
+$ git clone https://github.com/chloeegong/Lightguard-client.git
 ```
-
+Install packages for server
+```console
+$ npm install
+$ npm install twilio --save
+$ npm install dotenv --save
+```
+ 
+Create .env file in server and add this code 
+ ```
+ $ MONGO_SRV=[]
+ $ JWT_SECRET=[]
+ $ TWILIO_ACCOUNT_SID=[]
+ $ TWILIO_AUTH_TOKEN=[]
+ ```
+ 
+ Start server 
+ ```
+ $ cd server 
+ $ npm run dev
+ ```
+ 
 Install packages for client
 ```console
 $ npm install
 ```
+ 
+ Create .env file in client and add this code 
+ ```
+ $ GOOGLE_MAPS_KEY=[]
+ ```
 
 Start client 
  ```console 
  $ cd client
  $ npx expo start
- ```
-
-Install packages for server
-```console
-$ npm install
-```
-
- Start server 
- ```
- $ cd server 
- $ npm run dev
  ```
 
 View project locally 
