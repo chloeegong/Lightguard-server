@@ -21,7 +21,7 @@ const callEmergServices = async (req, res) => {
         .create({
 
 
-        twiml: '<Response><Say>Your friend is in danger. Help! Thank you.</Say></Response>',
+        twiml: '<Response><Say>This is LightGuard. Our user indicated that they require your assistance while on their walk around campus. Please locate and ensure they are safe. Thank you.</Say></Response>',
         to: '+19094526742',
         from: '+18335671491'
         })
