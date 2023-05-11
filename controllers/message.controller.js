@@ -25,7 +25,7 @@ const messageEmergContact = async (req, res) => {
   client.messages
   .create({
     //message sent
-    body: textMessage,
+    body: 'This is LightGuard. Our user indicated that they are near Engineering and Computer Science and require your assistance while on their walk around campus. Please locate and ensure they are safe. Thank you.',
     //twilio given phone number
     from: '+18335671491',
     //specify what phone number message is sent to
