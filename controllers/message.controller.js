@@ -33,7 +33,7 @@ const messageEmergContact = async (req, res) => {
   })
   .then(message => console.log(message.sid));
 
-        return res.status(201).send({ message: 'Messaging emergency contact' })
+        return res.status(201).send({ message: 'This is LightGuard. Our user indicated that they are near Engineering and Computer Science and require your assistance while on their walk around campus. Please locate and ensure they are safe. Thank you.' })
     } catch (error) {
         console.log(`error in message.controller login function: ${error.message}`); 
         return res.status(500).send({ message: error.message }); 
